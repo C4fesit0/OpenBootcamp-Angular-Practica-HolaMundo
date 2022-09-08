@@ -1,4 +1,71 @@
-<p>Lista de Elementos:</p>
+<!-- Bloque de directivas de ATRIBUTO -->
 
-    <p>Aqui vamos a iterar sobre una lista y mostrar varios elementos</p>
+<p [ngStyle]="{color: 'tomato', fontWeight: 'bold'}">Lista de Elementos:</p>
+<!-- Se utiliza camelCase para especificar los estilos en NgStyle -->
+<p ngClass="underlined">Aqui vamos a iterar sobre una lista y mostrar varios elementos</p>
+<!-- Cuando la directiva tiene corchetes ya no podemos darle valores literales, sino que debemos asociarla a variables -->
+<p [ngClass]="['underlined','small']">Aun no tienes elementos en la lista</p>
 
+<!-- Podemos habilitar o deshabilitar valores -->
+<p [ngClass]="{underlined: false, small: true}">Te recomendamos crear un elemento</p>
+
+
+<!-- Bloque de directivas ESTRUCTURALES -->
+
+
+<button (click)="cambiarCargando()">{{cargando? 'Terminar Carga': 'Iniciar Carga'}}</button>
+
+<!-- <p *ngIf="cargando">
+    Cargando...
+</p> -->
+
+<ng-container *ngIf="!cargando;else templateEspera">
+    <p>Todo Listo!</p>
+</ng-container>
+<ng-template #templateEspera>
+    <p>Cargando..</p>
+    <p>Espere a que termine el proceso</p>
+</ng-template>
+
+<!-- Bloque ESTRUCTURAL nfFor -->
+    <div *ngFor="let producto of listaDeElementos; let i=index; let even=even">
+        <!-- Se genera un ambito de FOR donde tenemos acceso 
+        a cada uno de los productos en la lista -->
+        <div ngClass="producto" [ngStyle]="even?{backgroundColor:'blue',color:'white',fontWeigth:'bold'}:{backgroundColor:'green',color:'white',fontWeigth:'bold'}">
+        <!-- Con even podemos saber si el producto en la lista tiene una posicion
+        par o impar -->
+            <p>{{producto.nombre}}- ${{producto.precio}}</p>
+        <p>{{producto.descripcion}}</p>
+        </div>
+    </div>
+
+<!-- bloque ESTRUCTURAL ngSwitch -->
+    <div [ngSwitch]="opcion">
+        <p [id]="1" *ngSwitchCase="1" >Has escogido la opcion 1</p>
+        <p [id]="2" *ngSwitchCase="2" >Has escogido la opcion 2</p>
+        <p [id]="3" *ngSwitchCase="3" >Has escogido la opcion 3</p>
+        <p [id]="4" *ngSwitchCase="4" >Has escogido la opcion 4</p>
+        <p *ngSwitchDefault class="cerrar"></p>
+    </div>
+<!-- Seleccion de opciones del Switch -->
+<div>
+    <input type="radio" name="opcion" (click)="escogerOpcion(1)"/>Opcion 1
+    <input type="radio" name="opcion" (click)="escogerOpcion(2)"/>Opcion 2
+    <input type="radio" name="opcion" (click)="escogerOpcion(3)"/>Opcion 3
+    <input type="radio" name="opcion" (click)="escogerOpcion(4)"/>Opcion 4
+    <input type="radio" checked name="opcion" (click)="escogerOpcion(0)"/>Ocultar
+</div>
+
+<!-- Podemos concatenar directivas -->
+<div *ngFor="let producto of listaDeElementos; let i=index; let even=even">
+    <!-- Se genera un ambito de FOR donde tenemos acceso 
+    a cada uno de los productos en la lista -->
+    <p>Productos mayores a $10</p>
+    <!-- Solo mostramos los productos mayores a $10 -->
+    <div *ngIf="producto.precio>10" ngClass="producto" [ngStyle]="even?{backgroundColor:'blue',color:'white',fontWeigth:'bold'}:{backgroundColor:'green',color:'white',fontWeigth:'bold'}">
+    <!-- Con even podemos saber si el producto en la lista tiene una posicion
+    par o impar -->
+        <p>{{producto.nombre}}- ${{producto.precio}}</p>
+    <p>{{producto.descripcion}}</p>
+    </div>
+</div>
