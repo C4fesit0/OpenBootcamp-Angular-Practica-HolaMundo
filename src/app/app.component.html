@@ -313,13 +313,18 @@
 </div>
 
 <div class="content" role="main">
-  <!-- <h1>Â¡Hola, {{ nombre }}!</h1> -->
+  <!-- <h1>¡Hola, {{ nombre }}!</h1> -->
 
   <!-- Input para trabajar con NgModel -->
-  <input type="text" placeholder="Nombre de usuario" [(ngModel)]="usuario" />
+  <!-- <input type="text" placeholder="Nombre de usuario" [(ngModel)]="usuario" /> -->
 
-  <app-saludo [nombre]="usuario" (mensajeEmitter)="recibirMensajeDelHijo($event)"></app-saludo>
+  <!-- <app-saludo [nombre]="usuario" (mensajeEmitter)="recibirMensajeDelHijo($event)"></app-saludo> -->
   <!-- <app-saludo (mensajeEmitter)="recibirMensajeDelHijo($event)"></app-saludo> -->
+
+
+  <!-- Ejemplo de uso de Servicio -->
+  <app-lista-contactos></app-lista-contactos>
+
 
 </div>
 
