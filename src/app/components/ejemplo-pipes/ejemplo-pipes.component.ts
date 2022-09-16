@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IJugador } from '../../models/jugador.interface';
+import { IContacto } from '../../models/contacto.interface';
 
 @Component({
   selector: 'app-ejemplo-pipes',
@@ -11,7 +12,21 @@ export class EjemploPipesComponent implements OnInit {
   dob: Date = new Date(1991,3,10);
   cambio: boolean=true;
   nombre: string ='Martin';
-  numero_PI: number = 3.1415926535897
+  numero_PI: number = 3.1415926535897;
+  precioCarrito: number = 100;
+
+  persona: IContacto={
+    id: 0,
+    nombre: 'Martin',
+    apellidos: 'San Jose',
+    edad: 30,
+    email: 'martin@imaginagroup.com'
+  }
+
+  cantidad: number = 0.3512;
+  textoLargo:string = 'asddfsdfgsd asd asfgdfsg asdad';
+  
+  
 
   //Ejemplo para calcular la puntuacion
   jugador1: IJugador= {

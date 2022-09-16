@@ -23,6 +23,20 @@
     <p>PI (5 decimales):{{numero_PI | number: '.5-5'}}</p>
     <p>PI (2 enteros y 8 decimales): {{numero_PI | number: '2.8-8'}}</p>
 
+    <!-- Moneda (Currency) -->
+    <p>Precio del Carrito {{precioCarrito | currency: 'EUR' }}</p>
+    <p>Precio del Carrito {{precioCarrito | currency: 'USD':true}}</p>
+    <p>Precio del Carrito con 3 decimales {{precioCarrito | currency: 'EUR':true: '.3-3'}}</p>
+
+    <!-- JSON -->
+    <p>{{persona | json}}</p>
+
+    <!-- Porcentajes -->
+    <p>Porcentaje de votos obtenido {{ cantidad| percent: '2.2-2'}}</p>
+
+    <!-- Slice -->
+    <p>Texto demasiado largo {{textoLargo | slice:0:10}} ...</p>
+
     <!-- Combinacion de Pipes -->
     <p>Mi cumpleaños con PIPE DATE Short/Full MAYUSCULAS es: {{dob | date: dateFormat | uppercase}}</p>
     <p>Mi cumpleaños con PIPE DATE Short/Full MINUSCULAS es: {{dob | date: dateFormat | lowercase}}</p>
