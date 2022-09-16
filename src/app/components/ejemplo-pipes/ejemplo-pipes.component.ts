@@ -11,6 +11,7 @@ export class EjemploPipesComponent implements OnInit {
   dob: Date = new Date(1991,3,10);
   cambio: boolean=true;
   nombre: string ='Martin';
+  numero_PI: number = 3.1415926535897
 
   //Ejemplo para calcular la puntuacion
   jugador1: IJugador= {
@@ -22,7 +23,7 @@ export class EjemploPipesComponent implements OnInit {
     nombre: 'Pepe',
     puntos: [0,80,10,5]
   }
-  
+
   constructor() { }
 
   ngOnInit(): void {
