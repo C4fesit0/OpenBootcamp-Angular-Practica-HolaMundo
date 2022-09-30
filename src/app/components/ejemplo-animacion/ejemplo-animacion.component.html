@@ -1,0 +1,7 @@
+<div [@animaciones]="state" class="caja">
+    <p>Ejemplo de animacion - {{state}}</p>
+    <button mat-raised-button color="info" (click)="cambiarEstadoActivado()">{{state=='active'?'Desactivar':'Activar'}}</button>
+    <button mat-raised-button color="primary" (click)="subir()">Subir Caja</button>
+    <button mat-raised-button color="warn" (click)="rotar()">Rotar Caja</button>
+    <button mat-raised-button color="info" (click)="cambiarTamanio()">{{state=='original'?'Ampliar':'Volver a original'}}</button>
+</div>

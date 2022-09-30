@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 //Modulos Angular Material
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatButtonModule } from '@angular/material/button';
 
 // Locale para PIPES
 import { registerLocaleData } from '@angular/common';
@@ -27,6 +28,7 @@ import { ListaContactosComponent } from './components/lista-contactos/lista-cont
 import { EjemploPipesComponent } from './components/ejemplo-pipes/ejemplo-pipes.component';
 import { MultiplicaPipe } from './pipes/multiplica.pipe';
 import { CalcularPuntuacionPipe } from './pipes/calcular-puntuacion.pipe';
+import { EjemploAnimacionComponent } from './components/ejemplo-animacion/ejemplo-animacion.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { CalcularPuntuacionPipe } from './pipes/calcular-puntuacion.pipe';
     ListaContactosComponent,
     EjemploPipesComponent,
     MultiplicaPipe,
-    CalcularPuntuacionPipe
+    CalcularPuntuacionPipe,
+    EjemploAnimacionComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +56,8 @@ import { CalcularPuntuacionPipe } from './pipes/calcular-puntuacion.pipe';
     ReactiveFormsModule,
     //Imporamos los modulos de Angular Material que usamos en los formularios
     MatFormFieldModule,
+    MatButtonModule,
+    //Para crear animaciones es necesario el BrowserAnimationsModule
     BrowserAnimationsModule
   ],
   providers: [
